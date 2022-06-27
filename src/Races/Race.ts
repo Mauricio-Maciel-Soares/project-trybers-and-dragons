@@ -1,11 +1,27 @@
-class Race {
-  name: string;
-  dexterity: number;
+abstract class Race {
+  private _name: string;
+  private _dexterity: number;
 
   constructor(name: string, dexterity: number) {
-    this.name = name;
-    this.dexterity = dexterity;
+    this._name = name;
+    this._dexterity = dexterity;
   }
+
+  // use a convenção de atributos privados para criar os atributos com _ e os getters para expor os atributos sem o _.
+
+  get name(): string {
+    return this._name;
+  }
+
+  get dexterity(): number {
+    return this._dexterity;
+  }
+
+  static createdRacesInstances(): number {
+    throw new Error('Not implemented');
+  }
+
+  abstract get maxLifePoints(): number;
 }
 
 export default Race;
